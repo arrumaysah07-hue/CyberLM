@@ -1,68 +1,56 @@
 import { useEffect, useState } from "react";
 
 function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [visible, setVisible] = useState(false);
+  const [position, setPosition] = useState({
+    x: -100,
+    y: -100,
+  });
+
   const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
-    const moveCursor = (event: MouseEvent) => {
+    const handleMouseMove = (event: MouseEvent) => {
       setPosition({
         x: event.clientX,
         y: event.clientY,
       });
 
-      setVisible(true);
-
-      const target = event.target as HTMLElement;
+      const target = event.target as HTMLElement | null;
 
       setHovering(
-        !!target.closest(
-          "button, a, input, textarea, select, [data-cursor]"
+        Boolean(
+          target?.closest(
+            "button, a, input, textarea, select, [data-cursor]"
+          )
         )
       );
     };
 
-    const handleMouseLeave = () => {
-      setVisible(false);
-    };
-
-    const handleMouseEnter = () => {
-      setVisible(true);
-    };
-
-    window.addEventListener("mousemove", moveCursor);
-    document.documentElement.addEventListener("mouseleave", handleMouseLeave);
-    document.documentElement.addEventListener("mouseenter", handleMouseEnter);
+    window.addEventListener(
+      "mousemove",
+      handleMouseMove
+    );
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
-      document.documentElement.removeEventListener(
-        "mouseleave",
-        handleMouseLeave
-      );
-      document.documentElement.removeEventListener(
-        "mouseenter",
-        handleMouseEnter
+      window.removeEventListener(
+        "mousemove",
+        handleMouseMove
       );
     };
   }, []);
 
   return (
     <div
-      className={`custom-cursor ${visible ? "visible" : ""} ${
-        hovering ? "cursor-hover" : ""
+      className={`custom-cursor ${
+        hovering ? "is-hovering" : ""
       }`}
       style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
+        left: position.x,
+        top: position.y,
       }}
+      aria-hidden="true"
     >
-      <span className="cursor-line cursor-line-top" />
-      <span className="cursor-line cursor-line-right" />
-      <span className="cursor-line cursor-line-bottom" />
-      <span className="cursor-line cursor-line-left" />
-      <span className="cursor-core" />
+      <span />
     </div>
   );
 }

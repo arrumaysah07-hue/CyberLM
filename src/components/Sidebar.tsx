@@ -8,7 +8,21 @@ import {
   Settings,
 } from "lucide-react";
 
-function Sidebar() {
+export type Page =
+  | "overview"
+  | "explore"
+  | "saved"
+  | "tools"
+  | "practice"
+  | "progress"
+  | "settings";
+
+interface SidebarProps {
+  activePage: Page;
+  onNavigate: (page: Page) => void;
+}
+
+function Sidebar({ activePage, onNavigate }: SidebarProps) {
   return (
     <aside className="sidebar">
       <div className="brand">
@@ -24,47 +38,61 @@ function Sidebar() {
         <div className="nav-section">
           <span>WORKSPACE</span>
 
-          <button className="nav-item active" data-cursor>
-            <LayoutDashboard size={17} />
-            <span>Overview</span>
-          </button>
+          <NavButton
+            icon={<LayoutDashboard size={17} />}
+            label="Overview"
+            active={activePage === "overview"}
+            onClick={() => onNavigate("overview")}
+          />
 
-          <button className="nav-item" data-cursor>
-            <Compass size={17} />
-            <span>Explore</span>
-          </button>
+          <NavButton
+            icon={<Compass size={17} />}
+            label="Explore"
+            active={activePage === "explore"}
+            onClick={() => onNavigate("explore")}
+          />
 
-          <button className="nav-item" data-cursor>
-            <Bookmark size={17} />
-            <span>Saved</span>
-          </button>
+          <NavButton
+            icon={<Bookmark size={17} />}
+            label="Saved"
+            active={activePage === "saved"}
+            onClick={() => onNavigate("saved")}
+          />
         </div>
 
         <div className="nav-section">
           <span>LAB</span>
 
-          <button className="nav-item" data-cursor>
-            <Wrench size={17} />
-            <span>Cyber Tools</span>
-          </button>
+          <NavButton
+            icon={<Wrench size={17} />}
+            label="Cyber Tools"
+            active={activePage === "tools"}
+            onClick={() => onNavigate("tools")}
+          />
 
-          <button className="nav-item" data-cursor>
-            <Brain size={17} />
-            <span>Practice</span>
-          </button>
+          <NavButton
+            icon={<Brain size={17} />}
+            label="Practice"
+            active={activePage === "practice"}
+            onClick={() => onNavigate("practice")}
+          />
 
-          <button className="nav-item" data-cursor>
-            <Activity size={17} />
-            <span>Progress</span>
-          </button>
+          <NavButton
+            icon={<Activity size={17} />}
+            label="Progress"
+            active={activePage === "progress"}
+            onClick={() => onNavigate("progress")}
+          />
         </div>
       </nav>
 
       <div className="sidebar-bottom">
-        <button className="nav-item" data-cursor>
-          <Settings size={17} />
-          <span>Settings</span>
-        </button>
+        <NavButton
+          icon={<Settings size={17} />}
+          label="Settings"
+          active={activePage === "settings"}
+          onClick={() => onNavigate("settings")}
+        />
 
         <div className="system-status">
           <span className="status-dot" />
@@ -72,6 +100,29 @@ function Sidebar() {
         </div>
       </div>
     </aside>
+  );
+}
+
+function NavButton({
+  icon,
+  label,
+  active,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      className={`nav-item ${active ? "active" : ""}`}
+      onClick={onClick}
+      data-cursor
+    >
+      {icon}
+      <span>{label}</span>
+    </button>
   );
 }
 
