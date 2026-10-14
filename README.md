@@ -1,75 +1,94 @@
-# React + TypeScript + Vite
+# Rita Das — Cybersecurity Portfolio 🛡️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A futuristic, cyberpunk-inspired personal portfolio website showcasing Rita Das's profile, cybersecurity skills, education, language proficiency, and contact information.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Cyberpunk UI:** Dark theme with neon cyan and pink accents.
+- **Animated Loader:** Loading screen with a progress bar and dynamic status messages.
+- **Custom Cursor:** Interactive glowing cursor with hover effects on desktop.
+- **Responsive Navigation:** Smooth navigation between portfolio sections.
+- **Animated Hero Section:** Letter-reveal animations, role display, and floating cybersecurity cards.
+- **About Me:** Personal introduction and profile statistics.
+- **Skills Matrix:** Dedicated cards for cybersecurity skills.
+- **Education Timeline:** Academic background and training information.
+- **Language Proficiency:** Visual cards for five languages.
+- **Contact Section:** Email, phone, and location information.
+- **Scroll Animations:** Reveal effects and interactive hover transitions.
+- **Responsive Design:** Layout adjustments for smaller screens.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **HTML5** — Website structure
+- **CSS3** — Styling, animations, gradients, and responsive layouts
+- **JavaScript** — Interactive elements and animations
+- **Google Fonts** — Space Grotesk and JetBrains Mono
+- **Font Awesome** — Icons
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+rita-das-portfolio/
+├── index.html
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The website's HTML, CSS, and JavaScript are contained in a single HTML file.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Run Locally
 
-```
+1. Clone or download this repository.
+2. Open the project folder.
+3. Open `index.html` in your browser.
+
+Alternatively, use the Live Server extension in Visual Studio Code.
+
+No additional packages or build tools are required.
+
+## 🖥️ Website Sections
+
+| Section | Description |
+|---|---|
+| Home | Animated introduction and cybersecurity theme |
+| About | Profile summary and statistics |
+| Skills | Cybersecurity skills and visual indicators |
+| Education | Academic background |
+| Languages | Language proficiency |
+| Contact | Contact details and availability |
+
+## 🎨 Customization
+
+You can personalize the portfolio by editing `index.html`.
+
+- Update the name, biography, and professional role.
+- Modify the skills and education details.
+- Change the colors using the CSS variables inside `:root`.
+- Customize animations and interactive effects in JavaScript.
+- Update the contact information and social links.
+
+## 🌐 Deployment
+
+This project can be hosted using GitHub Pages or another static website hosting service.
+
+### Deploy with GitHub Pages
+
+1. Push the project files to your GitHub repository.
+2. Navigate to **Settings → Pages**.
+3. Select the appropriate deployment source and branch.
+4. Save your settings and wait for deployment to complete.
+
+## 📌 Notes
+
+- An internet connection is required to load the external Google Fonts and Font Awesome resources.
+- Review personal contact information before publishing the repository publicly.
+- Verify all portfolio details before using the website professionally.
+
+## 📄 License
+
+No license has been specified for this project. Add a `LICENSE` file if you intend to define permissions for reuse and distribution.
+
+---
+
+**Designed with creativity, built with code, and inspired by cybersecurity.** 🔐
